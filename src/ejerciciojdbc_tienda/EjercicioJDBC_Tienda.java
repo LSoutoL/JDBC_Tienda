@@ -6,6 +6,7 @@ package ejerciciojdbc_tienda;
 
 import ejerciciojdbc_tienda.servicios.FabricanteServicio;
 import ejerciciojdbc_tienda.servicios.ProductoServicio;
+import java.util.Scanner;
 
 /**
  *
@@ -27,18 +28,42 @@ e) Listar el nombre y el precio del producto más barato.
 f) Ingresar un producto a la base de datos.
 g) Ingresar un fabricante a la base de datos
 h) Editar un producto con datos a elección.*/
-        
+        Scanner leer = new Scanner(System.in).useDelimiter("\n");
         ProductoServicio ps = new ProductoServicio();
         FabricanteServicio fs = new FabricanteServicio();
-        //ps.mostrarProductos();
-        //ps.nombreYPrecioProductos();
-        //ps.productosPorPrecio();
-        //ps.portatiles();
-        //ps.masBarato();
-        //ps.cargarProducto();
-        //fs.cargarFabricante();
-        ps.modificarProducto();
-        ps.mostrarProductos();
+        int opc;
+        do{
+            System.out.println("Indica la accion que queres realizar:");
+            System.out.println("1. Listar el nombre de todos los productos que hay en la tabla producto.");
+            System.out.println("2. Listar los nombres y los precios de todos los productos de la tabla producto.");
+            System.out.println("3. Listar aquellos productos que su precio esté entre 120 y 202.");
+            System.out.println("4. Buscar y listar todos los Portátiles de la tabla producto.");
+            System.out.println("5. Listar el nombre y el precio del producto más barato.");
+            System.out.println("6. Ingresar un producto a la base de datos.");
+            System.out.println("7. Ingresar un fabricante a la base de datos.");
+            System.out.println("8. Editar un producto con datos a elección.");
+            System.out.println("9. Salir.");
+            opc=leer.nextInt();
+            switch (opc){
+                case 1: ps.mostrarProductos();
+                break;
+                case 2: ps.nombreYPrecioProductos();
+                break;
+                case 3: ps.productosPorPrecio();
+                break;
+                case 4: ps.portatiles();
+                break;
+                case 5: ps.masBarato();
+                break;
+                case 6: ps.cargarProducto();
+                break;
+                case 7: fs.cargarFabricante();
+                break;
+                case 8: ps.modificarProducto();
+                break;
+            }
+        } while (opc!=9);
+        
     }
     
 }
